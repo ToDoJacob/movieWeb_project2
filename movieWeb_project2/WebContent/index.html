@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+<!--
+	Rocket Internet by TEMPLATE STOCK
+	templatestock.co @templatestock
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
 <html>
 <head>
 	
     <meta charset="utf-8" />
     <meta name="author" content="Script Tutorials" />
 
+    <title>Whirling dropdown menu | Script Tutorials</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
@@ -20,35 +27,36 @@
 	<!-- Animation Css -->
 	<link rel="stylesheet" href="css/animate.css">
 
-	<!-- add styles -->
-	<link href="css/main.css" rel="stylesheet" type="text/css" />
 
-    <title>Whirling dropdown menu | Script Tutorials</title>
-    
-    <script src="js/jquery-3.6.0.min.js"></script>
-	<script>
 
-	</script>
 </head>
 <body>
 <header>
-    
+    <!-- add styles -->
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
     <div class="container" id="main" role="main">
-	    <div>
-	    	<a href="#"><img id="logo" src="images/logo.jpg"></a>
-	    </div>
         <ul class="menu">
-            <li><a href="#s1">Genre</a>
+            <li><a href="#">Logo</a></li>
+            <li><a href="#s1">Menu 1</a>
                 <ul class="submenu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Animation</a></li>
-                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Submenu a</a></li>
+                    <li><a href="#">Submenu b</a></li>
+                    <li><a href="#">Submenu c</a></li>
                 </ul>
             </li>
-			<li id="login"><a href="#">Login</a></li>
         </ul>
-		
     </div>
+	<!-- <div id="homeFullScreen">
+		<div class="header-text">
+			<h1>Rocket internet</h1>
+			<div class="vertical-line"></div>
+			<p>
+				LOREM IPSUM DOLOR SIT AMET NULLAM CONSEQUAT 
+				<br />
+				INTERDUM VIVAMUS DONCE SED LIBERO.
+			</p>
+		</div><!-- End HeaderText
+	</div>End homeFullScreen -->
 </header><!-- End Header -->
 
 <!-- portfolio -->
@@ -56,67 +64,32 @@
 <section class="portfolio">
 	<div class="container">
 		<div class="row">
-			<!-- 액션 -->
-			<div>
-				<a href=""><img src="images/Action/007노타임투다이.jpg"></a>
+			<!-- 
+			<div class="col-md-12">
+				<h1 class="heading">Portfolio</h1>
 			</div>
-			<div>
-				<img src="images/Action/가디언즈오브갤럭시2.jpg">
-			</div>
-			<div>
-				<img src="images/Action/어벤져스.jpg">
-			</div>
-			<div>
-				<img src="images/Action/모가디슈.jpg">
-			</div>
-			<div>
-				<img src="images/Action/배트맨.jpg">
-			</div>
-			<div>
-				<img src="images/Action/블랙위도우.jpg">
-			</div>
-			<div>
-				<img src="images/Action/베놈2.jpg">
-			</div>
-			<div>
-				<img src="images/Action/스파이더맨.jpg">
-			</div>
-			<div>
-				<img src="images/Action/조커.jpg">
-			</div>
-			<div>
-				<img src="images/Action/기생충.jpg">
-			</div>
-			<!-- 애니메이션 -->
-			<div>
-				<img src="images/Animation/겨울왕국.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/미녀와야수.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/인사이드아웃.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/토이스토리4.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/업.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/알라딘.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/해리포터.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/보스베이비.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/라따뚜이.jpg">
-			</div>
-			<div class="last-img">
-				<img src="images/Animation/소울.jpg">
+			<!-- End col-md-12 -->
+
+			<div class="col-md-4 col-sm-4">
+				<img src="images/과테말라 안티구아.jpg">
+			</div><!-- End col-md-4 -->
+			<div class="col-md-4 col-sm-4">
+				<img src="images/니카라구아 더치핸드드립용 분쇄원두.jpg">
+			</div><!-- End col-md-4 -->
+			<div class="col-md-4 col-sm-4 last-img">
+				<img src="images/브라질산토스.jpg">
+			</div><!-- End col-md-4 -->
+
+			<div class="clearfix"></div><!-- End clearfix -->
+
+			<div class="col-md-4 col-sm-4">
+				<img src="images/에티오피아 예가체프.jpg">
+			</div><!-- End col-md-4 -->
+			<div class="col-md-4 col-sm-4">
+				<img src="images/케냐 오크라톡신.jpg">
+			</div><!-- End col-md-4 -->
+			<div class="col-md-4 col-sm-4 last-img">
+				<img src="images/코스타리카 따라주.jpg">
 			</div><!-- End col-md-4 -->
 		</div><!-- End row -->
 	</div><!-- End container -->
@@ -125,7 +98,7 @@
 <!-- Call to Action -->
 <section class="call-top-action text-center">
 	<div class="container">
-		<div>
+		<div class="row">
 			<div class="col-md-12">
 				<h1>many variations of passages</h1>
 				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration 
