@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	
-    <meta charset="utf-8" />
-    <meta name="author" content="Script Tutorials" />
+
+	<meta charset="utf-8" />
+	<meta name="author" content="Script Tutorials" />
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -23,145 +24,151 @@
 	<!-- add styles -->
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 
-    <title>Whirling dropdown menu | Script Tutorials</title>
-    
-    <script src="js/jquery-3.6.0.min.js"></script>
-	<script>
+	<title>Whirling dropdown menu | Script Tutorials</title>
 
-	</script>
+	<script src="js/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-<header>
-    
-    <div class="container" id="main" role="main">
-	    <div>
-	    	<a href="#"><img id="logo" src="images/logo.jpg"></a>
-	    </div>
-        <ul class="menu">
-            <li><a href="#s1">Genre</a>
-                <ul class="submenu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Animation</a></li>
-                    <li><a href="#">Romance</a></li>
-                </ul>
-            </li>
-			<li id="login"><a href="#">Login</a></li>
-        </ul>
+	<header>
+
+		<div class="container" id="main" role="main">
+			<div>
+				<a href="#toMainPage"><img id="logo" src="images/logo.jpg"></a>
+			</div>
+			<ul class="menu">
+				<li><a href="#toListAllPage">Genre</a>
+					<ul class="submenu">
+						<li><a href="#toActionPage">Action</a></li>
+						<li><a href="#toAnimationPage">Animation</a></li>
+						<li><a href="#toRomancePage">Romance</a></li>
+					</ul>
+				</li>
+				<li id="login"><a href="#toLoginPage">Login</a></li>
+				<!--#toLogoutPage도 구현-->
+			</ul>
+
+		</div>
+	</header><!-- End Header -->
+
+	<script>
 		
-    </div>
-</header><!-- End Header -->
+	</script>
+	<!-- portfolio -->
 
-<!-- portfolio -->
+	<section class="portfolio">
+		<div class="container">
+			<div class="row">
+				<!-- 액션 -->
+				<div>
+					<a href=""><img src="images/Action/007노타임투다이.jpg"></a>
+				</div>
+				<div>
+					<img src="images/Action/가디언즈오브갤럭시2.jpg">
+				</div>
+				<div>
+					<img src="images/Action/어벤져스.jpg">
+				</div>
+				<div>
+					<img src="images/Action/모가디슈.jpg">
+				</div>
+				<div>
+					<img src="images/Action/배트맨.jpg">
+				</div>
+				<div>
+					<img src="images/Action/블랙위도우.jpg">
+				</div>
+				<div>
+					<img src="images/Action/베놈2.jpg">
+				</div>
+				<div>
+					<img src="images/Action/스파이더맨.jpg">
+				</div>
+				<div>
+					<img src="images/Action/조커.jpg">
+				</div>
+				<div>
+					<img src="images/Action/기생충.jpg">
+				</div>
+				<!-- 애니메이션 -->
+				<div>
+					<img src="images/Animation/겨울왕국.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/미녀와야수.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/인사이드아웃.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/토이스토리4.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/업.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/알라딘.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/해리포터.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/보스베이비.jpg">
+				</div>
+				<div>
+					<img src="images/Animation/라따뚜이.jpg">
+				</div>
+				<div class="last-img">
+					<img src="images/Animation/소울.jpg">
+				</div><!-- End col-md-4 -->
+			</div><!-- End row -->
+		</div><!-- End container -->
+	</section>
 
-<section class="portfolio">
-	<div class="container">
-		<div class="row">
-			<!-- 액션 -->
+	<!-- Call to Action -->
+	<section class="call-top-action text-center">
+		<div class="container">
 			<div>
-				<a href=""><img src="images/Action/007노타임투다이.jpg"></a>
-			</div>
-			<div>
-				<img src="images/Action/가디언즈오브갤럭시2.jpg">
-			</div>
-			<div>
-				<img src="images/Action/어벤져스.jpg">
-			</div>
-			<div>
-				<img src="images/Action/모가디슈.jpg">
-			</div>
-			<div>
-				<img src="images/Action/배트맨.jpg">
-			</div>
-			<div>
-				<img src="images/Action/블랙위도우.jpg">
-			</div>
-			<div>
-				<img src="images/Action/베놈2.jpg">
-			</div>
-			<div>
-				<img src="images/Action/스파이더맨.jpg">
-			</div>
-			<div>
-				<img src="images/Action/조커.jpg">
-			</div>
-			<div>
-				<img src="images/Action/기생충.jpg">
-			</div>
-			<!-- 애니메이션 -->
-			<div>
-				<img src="images/Animation/겨울왕국.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/미녀와야수.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/인사이드아웃.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/토이스토리4.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/업.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/알라딘.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/해리포터.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/보스베이비.jpg">
-			</div>
-			<div>
-				<img src="images/Animation/라따뚜이.jpg">
-			</div>
-			<div class="last-img">
-				<img src="images/Animation/소울.jpg">
-			</div><!-- End col-md-4 -->
-		</div><!-- End row -->
-	</div><!-- End container -->
-</section>
+				<div class="col-md-12">
+					<h1>many variations of passages</h1>
+					<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+						alteration
+						<br />
+						in some form, by injected humour, or randomised words which don't look even slightly believable
+					</p>
+					<span>LOREM IPSUM</span>
+				</div><!-- End col-md-12 -->
+			</div><!-- End row -->
+		</div><!-- End container -->
+	</section>
 
-<!-- Call to Action -->
-<section class="call-top-action text-center">
-	<div class="container">
-		<div>
-			<div class="col-md-12">
-				<h1>many variations of passages</h1>
-				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration 
-				<br />
-				in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-				<span>LOREM IPSUM</span>
-			</div><!-- End col-md-12 -->
-		</div><!-- End row -->
-	</div><!-- End container -->
-</section>
-
-<!-- Footer -->
-<footer>
-	<ul class="in-line">
-		<li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
-		<li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
-		<li><a href="#"><span><i class="fa fa-youtube"></i></span></a></li>
-	</ul>
-	<span class="copyright">&#169; Untitled . All rights reserved. Design By <a href="http://templatestock.co">Templatestock.co</a></span>
-</footer>
-	
+	<!-- Footer -->
+	<footer>
+		<ul class="in-line">
+			<li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+			<li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+			<li><a href="#"><span><i class="fa fa-youtube"></i></span></a></li>
+		</ul>
+		<span class="copyright">&#169; Untitled . All rights reserved. Design By <a
+				href="http://templatestock.co">Templatestock.co</a></span>
+	</footer>
 
 
 
-<!-- Main JS -->
-<script type="text/javascript" src="js/jquery-main.js"></script>
 
-<!-- Bootstrap JS -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- Main JS -->
+	<script type="text/javascript" src="js/jquery-main.js"></script>
 
-<!-- Animation JS -->
-<script type="text/javascript" src="js/wow.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-<!-- Custom JS -->
-<script type="text/javascript" src="js/custom.js"></script>
+	<!-- Animation JS -->
+	<script type="text/javascript" src="js/wow.min.js"></script>
+
+	<!-- Custom JS -->
+	<script type="text/javascript" src="js/custom.js"></script>
 
 
 </body>
+
 </html>
