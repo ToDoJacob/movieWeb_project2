@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,47 +26,40 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// 기본 설정
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
+		// 출력스트림생성
 		PrintWriter out = response.getWriter();
 
-		
-		//1.parameter 추출
+		// getParameter를 이용하여 값을 전달받음
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
-		
-		//2.유효성 체크
-		if(userId.isEmpty() || userPw.isEmpty()) {
-			RequestDispatcher rd = request.getRequestDispatcher("");
-			rd.forward(request, response);
-			return;
-		}
-		
-	
-		
-		
 
-//		UserVO vo = new UserVO();
-//		UserDAO dao = new UserDAO();
-//		boolean result = false;
-//
-//		vo.setUserId(userId);
-//		vo.setUserPw(userPw);
-//
-//		result = dao.loginUser(vo);
-//		if (result) {
-//			HttpSession session = request.getSession();
-//			session.setAttribute("isLogOn", true);
-//			session.setAttribute("login.id", userId);
-//			session.setAttribute("login.pwd", userPw);
-//
-//			out.print("<html><body><h1>안녕하세요</h1><br><h3><a href='/show'></a>");
-//
+		UserDAO dao = new UserDAO();
+		UserVO vo = new UserVO();
+
+		// response.getWriter().println(vo);
+		Gson gson = new GsonBuilder().create();
+
+		vo.setUserId(userId);
+		vo.setUserPw(userPw);
+		vo.setUserNick(userPw);
+
+		vo = dao.loginUser(vo);
+		out.println(gson.toJson(vo));
+
+	
+//		int r = -1;
+//		if (userId == vo.getUserId() && userPw == vo.getUserPw()) {
+//			r = 1;
 //		} else {
-//			out.print("<html><body><h1>아이디가 틀립니다.</h1><br><h3><a href='/login.html'>다시</a></h3></body></html>");
+//			r = 0;
 //		}
+//		System.out.println(r);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

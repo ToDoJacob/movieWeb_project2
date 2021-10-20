@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
@@ -29,18 +27,20 @@ public class UserServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		PrintWriter out = response.getWriter();
-		UserDAO dao = new UserDAO();
- 
+
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
 		String userNick = request.getParameter("userNick");
 
+
+		UserDAO dao = new UserDAO();
 		UserVO vo = new UserVO();
+		
 		vo = dao.insertUser(userId, userPw, userNick);
 		vo.setUserId(userId);
 		vo.setUserPw(userPw);
 		vo.setUserNick(userNick);
-	
+
 //		System.out.println("<h1>추가페이지입니다</h1>");
 //		//사용자가 이름과 내용은 등록해서 누르면 
 //		String name =  request.getParameter("name");

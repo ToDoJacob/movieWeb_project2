@@ -2,133 +2,139 @@
 <html>
 
 <head>
-	<title>로그인</title>
-	<meta charset="utf-8">
-	<script src="../jquery/jquery-3.6.0.min.js"></script>
-	<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-	<style>
-		* {
-			box-sizing: border-box;
-			font-family: 'Noto Sans KR', sans-serif;
-		}
+<title>로그인</title>
+<meta charset="utf-8">
+<script src="../jquery/jquery-3.6.0.min.js"></script>
+<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
+	rel="stylesheet">
 
-		body {
-			margin: 0;
-			background-color: black;
-		}
+<style>
+* {
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+}
 
-		.login-form {
-			position: absolute;
-			padding: 20px;
-			width: 300px;
-			background-color: #EEEFF1;
-			border-radius: 5px;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
+body {
+	margin: 0;
+	background-color: black;
+}
 
-		.text-field {
-			border: none;
-			border-radius: 5px;
-			width: 260px;
-			margin-bottom: 10px;
-			padding: 10px;
-			font-size: 14px;
-		}
+.login-form {
+	position: absolute;
+	padding: 20px;
+	width: 300px;
+	background-color: #EEEFF1;
+	border-radius: 5px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 
-		.submit-btn {
-			color: white;
-			width: 100px;
-			border: none;
-			border-radius: 5px;
-			background-color: rgb(248, 31, 31);
-			font-size: 14px;
-			margin-bottom: 30px;
-			margin-left: 18px;
-			padding: 10px;
-		}
+.text-field {
+	border: none;
+	border-radius: 5px;
+	width: 260px;
+	margin-bottom: 10px;
+	padding: 10px;
+	font-size: 14px;
+}
 
-		.links {
-			text-decoration: None;
-			text-align: center;
-		}
+.submit-btn {
+	color: white;
+	width: 100px;
+	border: none;
+	border-radius: 5px;
+	background-color: rgb(248, 31, 31);
+	font-size: 14px;
+	margin-bottom: 30px;
+	margin-left: 18px;
+	padding: 10px;
+}
 
-		.links a {
-			text-decoration: none;
-			color: #9B9B9B;
-			font-size: 12px;
-		}
-	</style>
+.links {
+	text-decoration: None;
+	text-align: center;
+}
+
+.links a {
+	text-decoration: none;
+	color: #9B9B9B;
+	font-size: 12px;
+}
+</style>
 
 </head>
 
 
 <body>
-	<nav style="color: red">
-		<h1>로고</h1>
-	</nav>
 	<div class="login-form">
-		<form id="frm" method="post" onsubmit="submitFrm(event)">로그인
-			<br><br>
-			<input type="text" id="userId" name="email" class="text-field" placeholder="이메일(example@gmail.com)"><br>
-			<input type="password" id="userPw" name="password" class="text-field" placeholder="비밀번호"><br>
-			<input type="submit" value="로그인" class="submit-btn">
-			<input type="submit" value="회원가입" class="submit-btn" onclick="location.href='register.html'">
-
-
+		<form id="frm" method="post" onsubmit="login(event)">
+			로그인 <br> <br> <input type="text" id="userId" name="userId"
+				class="text-field" placeholder="이메일(example@gmail.com)"><br>
+			<input type="password" id="userPw" name="userPw" class="text-field"
+				placeholder="비밀번호"><br> <input type="submit"
+				value="로그인" class="submit-btn"> <input type="button"
+				value="회원가입" class="submit-btn"
+				onclick="location.href='register.html'">
 		</form>
-
 		<div class="links">
 			<a href="#">다른 방법으로 로그인하기</a>
-			<div>
-				<button class="" type="button" src="이미지 넣기 "></button>
-				<button class="" type="button" src="이미지 넣기 "></button>
-				<button class="" type="button" src="이미지 넣기 "></button>
+			<div style="background-color: transparent;">
+				<button class="btn1" type="button">
+					<img src="../listPage/images/google.svg">
+				</button>
+				<button class="btn2" type="button">
+					<img src="../listPage/images/kakao.svg">
+				</button>
+				<button class="btn3" type="button">
+					<img src="../listPage/images/line.svg">
+				</button>
 			</div>
 		</div>
 	</div>
 </body>
 <script>
-	// function loginCheck() {
-		
-	// 	let loginForm =document.loginForm;
-	// 	let email = login-form.email.value;
-	// 	let password = login-form.password.value;
-
-	// 	if ((email.length == 0 || email == "") || (password.length == 0 || password == "")) {
-	// 		alert("아이디와 비밀번호는 필수입니다.")
-	// 	} else {
-	// 		loginForm.metthod = "post";
-	// 		loginForm.action = ""
-
-
-	// 	}
-
-	// }
-
-	function submitFrm(e) {
+	function login(e) {
 		e.preventDefault();
-		let userNick = $('#userNick').val();
 		let email = $('#userId').val();
 		let userPw = $('#userPw').val();
 
+		if (!email) {
+			window.alert('아이디 입력하세요');
+			document.frm.email.focus();
+			e.preventDefault();
+			return false;
+		}
+
+		if (!userPw) {
+			window.alert('비밀번호 입력하세요');
+			document.frm.userPw.focus();
+			e.preventDefault();
+			return false;
+		}
+
 		$.ajax({
-			url: '../LoginServlet',
-			type: 'post',
-			data: {
-				usesrId: email,
-				userPw: userPw
+			url : '../LoginServlet',
+			type : 'post',
+			data : {
+				userId : email,
+				userPw : userPw
 			},
-			dataType: 'json',
-			success: function (result) {
+			dataType : 'json',
+			success : function(result) {
 				console.log(result);
+				
+				if (result) {
+					window.location.href = 'index.html';
+				} else {
+					window.alert('로그인 실패');
+				}
 			},
-			error: function (reject) {
-				console.log(reject);
+			error : function(reject) {
+				window.alert('프로그램 실행 오류');
 			}
 
-		})
+		});
 
 	}
 </script>
