@@ -38,9 +38,9 @@
 			<ul class="menu">
 				<li><a href="#toListAllPage">Genre</a>
 					<ul class="submenu">
-						<li><a href="javascript:void(0);" onclick="">Action</a></li>
-						<li><a href="javascript:void(0);" onclick="">Animation</a></li>
-						<li><a href="javascript:void(0);" onclick="">Romance</a></li>
+						<li><a href="javascript:void(0);" onclick="division('action')">Action</a></li>
+						<li><a href="javascript:void(0);" onclick="division('animation')">Animation</a></li>
+						<li><a href="javascript:void(0);" onclick="division('romance')">Romance</a></li>
 					</ul>
 				</li>
 				<li id="login"><a href="#toLoginPage">Login</a></li>
@@ -50,70 +50,12 @@
 	</header><!-- End Header -->
 
 	<!-- portfolio -->
-	<script>
 	
-	
-		function makeMovieDiv(movie) {
-			console.log(movie.movie_id);
-			console.log(movie.title);
-			console.log(movie.genre);
-			
-		
-			let innerDiv = document.createElement('div');
-			innerDiv.setAttribute('id', movie.genre)
-			
-			let aTag = document.createElement('a');
-			//aTag.setAttribute('href', 상세페이지로가는주소);
-			
-			
-			let img = document.createElement('img');
-			img.setAttribute('src', 'images/'+movie.genre+'/'+movie.poster);
-			console.log(movie.poster);
-			
-			aTag.appendChild(img);
-			innerDiv.appendChild(aTag);
-			
-			
-			return innerDiv;
-		}
-		
-		//아작스 호출
-		let xhtp = new XMLHttpRequest();
-		xhtp.open('get', '../MovieServlet');
-		xhtp.send();
-		xhtp.onload = function() {
-			let data = JSON.parse(xhtp.responseText);
-			let list = document.querySelector('section.portfolio>div>div');
-		
-			for (let datum of data) {
-				
-				if(datum.genre == 'action'){
-				list.appendChild(makeMovieDiv(datum));
-				} 
-				else if(datum.genre == 'animation'){
-				list.appendChild(makeMovieDiv(datum));
-				} 
-				else if(datum.genre == 'romance'){
-				list.appendChild(makeMovieDiv(datum));
-				}
-			}
-		}
-		
-		
-		
-		
-	
-	
-		
-			
-			
-			
-	</script>
 
 	<section class="portfolio">
 		<div class="container">
 			<div class="row">
-			
+
 				<!--
 				<div>
 					<a href=""><img src="images/Action/007노타임투다이.jpg"></a>
@@ -210,7 +152,56 @@
 	</footer>
 
 
+	<script>
+		let movieAry = [];
 
+		function makeMovieDiv(movie) {
+			console.log(movie.movie_id);
+			console.log(movie.title);
+			console.log(movie.genre);
+
+			let innerDiv = document.createElement('div');
+			innerDiv.setAttribute('id', movie.genre)
+
+			let aTag = document.createElement('a');
+			aTag.setAttribute('href', 'movieDetail.jsp?movieId=' + movie.movie_id);
+
+			let img = document.createElement('img');
+			img.setAttribute('src', 'images/' + movie.genre + '/' + movie.poster);
+			console.log(movie.poster);
+
+			aTag.appendChild(img);
+			innerDiv.appendChild(aTag);
+
+			return innerDiv;
+		}
+
+
+		function division(genre) {
+			let list = document.querySelector('section.portfolio>div>div');
+			$(list).empty();
+			for (movie of movieAry) {
+				if (movie.genre == genre) {
+					list.appendChild(makeMovieDiv(movie));
+				}
+			}
+		}
+
+		//아작스 호출
+		let xhtp = new XMLHttpRequest();
+		xhtp.open('get', '../MovieServlet');
+		xhtp.send();
+		xhtp.onload = function () {
+			let movies = JSON.parse(xhtp.responseText);
+			console.log(movies)
+			let list = document.querySelector('section.portfolio>div>div');			
+			for(let movie of movies) {
+				list.appendChild(makeMovieDiv(movie));
+				movieAry.push(movie);
+			}
+			 
+		}
+	</script>
 
 
 </body>

@@ -44,7 +44,7 @@ public class MovieDAO extends DAO {
 	public List<MovieVO> getMovieList() {
 		connect();
 		List<MovieVO> list = new ArrayList<>();
-		String sql = "select * from movie order by movie_id";
+		String sql = "select * from movie order by 1";
 
 		try {
 			stmt = conn.createStatement();
