@@ -28,16 +28,6 @@
 
 	<script src="js/jquery-3.6.0.min.js"></script>
 </head>
-<script>
-		<!--$.ajax
-		
-		
-		쿼리셀렉트올로 태그들
-		전체를 다끈다음에ㅐ 포문으로
-		
-		내가누를 e.target부분만 display:-->
-		
-</script>
 
 <body>
 	<header>
@@ -60,12 +50,71 @@
 	</header><!-- End Header -->
 
 	<!-- portfolio -->
+	<script>
+	
+	
+		function makeMovieDiv(movie) {
+			console.log(movie.movie_id);
+			console.log(movie.title);
+			console.log(movie.genre);
+			
+		
+			let innerDiv = document.createElement('div');
+			innerDiv.setAttribute('id', movie.genre)
+			
+			let aTag = document.createElement('a');
+			//aTag.setAttribute('href', 상세페이지로가는주소);
+			
+			
+			let img = document.createElement('img');
+			img.setAttribute('src', 'images/'+movie.genre+'/'+movie.poster);
+			console.log(movie.poster);
+			
+			aTag.appendChild(img);
+			innerDiv.appendChild(aTag);
+			
+			
+			return innerDiv;
+		}
+		
+		//아작스 호출
+		let xhtp = new XMLHttpRequest();
+		xhtp.open('get', '../MovieServlet');
+		xhtp.send();
+		xhtp.onload = function() {
+			let data = JSON.parse(xhtp.responseText);
+			let list = document.querySelector('section.portfolio>div>div');
+		
+			for (let datum of data) {
+				
+				if(datum.genre == 'action'){
+				list.appendChild(makeMovieDiv(datum));
+				} 
+				else if(datum.genre == 'animation'){
+				list.appendChild(makeMovieDiv(datum));
+				} 
+				else if(datum.genre == 'romance'){
+				list.appendChild(makeMovieDiv(datum));
+				}
+			}
+		}
+		
+		
+		
+		
+	
+	
+		
+			
+			
+			
+	</script>
 
 	<section class="portfolio">
 		<div class="container">
 			<div class="row">
 			
-				<!-- 액션 -->
+				<!--
 				<div>
 					<a href=""><img src="images/Action/007노타임투다이.jpg"></a>
 				</div>
@@ -96,7 +145,7 @@
 				<div>
 					<img src="images/Action/기생충.jpg">
 				</div>
-				<!-- 애니메이션 -->
+				애니메이션
 				<div>
 					<img src="images/Animation/겨울왕국.jpg">
 				</div>
@@ -126,7 +175,8 @@
 				</div>
 				<div class="last-img">
 					<img src="images/Animation/소울.jpg">
-				</div><!-- End col-md-4 -->
+				</div>
+				-->
 			</div><!-- End row -->
 		</div><!-- End container -->
 	</section>
@@ -151,28 +201,16 @@
 	<!-- Footer -->
 	<footer>
 		<ul class="in-line">
-			<li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
-			<li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
-			<li><a href="#"><span><i class="fa fa-youtube"></i></span></a></li>
+			<li><a href="https://www.facebook.com/"><span><i class="fa fa-facebook"></i></span></a></li>
+			<li><a href="https://www.twitter.com/"><span><i class="fa fa-twitter"></i></span></a></li>
+			<li><a href="https://www.youtube.com/"><span><i class="fa fa-youtube"></i></span></a></li>
 		</ul>
-		<span class="copyright">&#169; Untitled . All rights reserved. Design By <a
-				href="http://templatestock.co">Templatestock.co</a></span>
+		<span class="copyright">&#169; Untitled . All rights reserved. Create By <a
+				href="https://blog.naver.com/sov02">Donggwan & Eunjin</a></span>
 	</footer>
 
 
 
-
-	<!-- Main JS -->
-	<script type="text/javascript" src="js/jquery-main.js"></script>
-
-	<!-- Bootstrap JS -->
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-	<!-- Animation JS -->
-	<script type="text/javascript" src="js/wow.min.js"></script>
-
-	<!-- Custom JS -->
-	<script type="text/javascript" src="js/custom.js"></script>
 
 
 </body>

@@ -1,6 +1,8 @@
 package co.yedam.movie;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MovieDAO extends DAO {
 
@@ -17,6 +19,7 @@ public class MovieDAO extends DAO {
 			psmt.setString(4, genre);
 			psmt.setString(5, opening_d);
 			psmt.setString(6, content_m);
+			
 			
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력.");
@@ -38,7 +41,36 @@ public class MovieDAO extends DAO {
 	}
 	
 	//영화 data 가지고오는 메소드
-	public void getMovie() {
+	public List<MovieVO> getMovieList() {
+		connect();
+		List<MovieVO> list = new ArrayList<>();
+		String sql = "select * from movie order by movie_id";
+
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			//psmt
+//			psmt = conn.prepareStatement("select * from movie order by 1");
+//			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+			MovieVO movie = new MovieVO();
+			movie.setMovie_id(rs.getInt("movie_id"));
+			movie.setPoster(rs.getString("poster"));
+			movie.setTitle(rs.getString("title"));
+			movie.setGenre(rs.getString("genre"));
+			movie.setOpening_d(rs.getString("opening_d"));
+			movie.setContent_m(rs.getString("content_m"));
+			list.add(movie);
+			
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
 		
 	}
 }
