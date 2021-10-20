@@ -15,6 +15,14 @@
 		body {
 			margin: 0;
 			background-color: black;
+			background-image: url(../listPage/images/background_image2.jpg);
+			background-repeat: no-repeat;
+			min-height: 100%;
+			min-width: 1024px;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		    background-size: cover;
 		}
 
 		.login-form {
@@ -98,8 +106,8 @@
 			회원가입 <br>
 			<br> <input type="text" id="userNick" name="userNick" class="text-field" placeholder="이름"><br> <input
 				type="email" id="userId" name="userId" class="text-field" placeholder="이메일(example@gmail.com)"><br>
-			<input type="password" id="userPw" name="userPw" class="text-field" placeholder="비밀번호"><br> <input
-				type="submit" value="계정 생성하기" class="submit-btn">
+			<input type="password" id="userPw" name="userPw" class="text-field" placeholder="비밀번호"><br> 
+			<input type="submit" value="계정 생성하기" class="submit-btn">
 		</form>
 	</div>
 </body>
@@ -121,7 +129,7 @@
 				userId: email,
 				userPw: userPw
 			},
-			dataType: 'json',
+			dataType: 'text',
 			success: function (result) {
 				//화면에 결과반영
 				console.log(result);
