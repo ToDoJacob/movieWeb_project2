@@ -43,7 +43,7 @@
 						<li><a href="javascript:void(0);" onclick="division('romance')">Romance</a></li>
 					</ul>
 				</li>
-				<li id="logout"><a href="#toLogoutPage">Log Out</a></li>
+				<li id="login"><a href="#toLogoutPage">Log Out</a></li>
 				<!--#toLogoutPage도 구현-->
 			</ul>
 		</div>
@@ -156,9 +156,6 @@
 		let movieAry = [];
 
 		function makeMovieDiv(movie) {
-			console.log(movie.movie_id);
-			console.log(movie.title);
-			console.log(movie.genre);
 
 			let innerDiv = document.createElement('div');
 			innerDiv.setAttribute('id', movie.genre)
@@ -168,7 +165,6 @@
 
 			let img = document.createElement('img');
 			img.setAttribute('src', 'images/' + movie.genre + '/' + movie.poster);
-			console.log(movie.poster);
 
 			aTag.appendChild(img);
 			innerDiv.appendChild(aTag);
@@ -193,7 +189,6 @@
 		xhtp.send();
 		xhtp.onload = function () {
 			let movies = JSON.parse(xhtp.responseText);
-			console.log(movies)
 			let list = document.querySelector('section.portfolio>div>div');			
 			for(let movie of movies) {
 				list.appendChild(makeMovieDiv(movie));
