@@ -37,16 +37,16 @@ public class LoginServlet extends HttpServlet {
 		// getParameter를 이용하여 값을 전달받음
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
+		String UserNick = request.getParameter("UserNick");
 
 		UserDAO dao = new UserDAO();
 		UserVO vo = new UserVO();
 
-		// response.getWriter().println(vo);
 		Gson gson = new GsonBuilder().create();
 
 		vo.setUserId(userId);
 		vo.setUserPw(userPw);
-		vo.setUserNick(userPw);
+		vo.setUserNick(UserNick);
 
 		vo = dao.loginUser(vo);
 		out.println(gson.toJson(vo));
