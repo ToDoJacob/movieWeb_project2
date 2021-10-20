@@ -16,12 +16,12 @@ public class DetailScreenDAO extends DAO {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				MovieVO movie = new MovieVO();
-				movie.setMovieId(rs.getInt("movie_id"));
+				movie.setMovie_id(rs.getInt("movie_id"));
 				movie.setPoster(rs.getString("poster"));
 				movie.setTitle(rs.getString("title"));
 				movie.setGenre(rs.getString("genre"));
-				movie.setOpeningD(rs.getString("opening_d"));
-				movie.setContentM(rs.getString("content_m"));
+				movie.setOpening_d(rs.getString("opening_d"));
+				movie.setContent_m(rs.getString("content_m"));
 
 				list.add(movie);
 			}
@@ -44,12 +44,12 @@ public class DetailScreenDAO extends DAO {
 			psmt.setInt(1, movieId);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-				vo.setMovieId(rs.getInt("movie_id"));
+				vo.setMovie_id(rs.getInt("movie_id"));
 				vo.setPoster(rs.getString("poster"));
 				vo.setTitle(rs.getString("title"));
 				vo.setGenre(rs.getString("genre"));
-				vo.setOpeningD(rs.getString("opening_d"));
-				vo.setContentM(rs.getString("content_m"));
+				vo.setOpening_d(rs.getString("opening_d"));
+				vo.setContent_m(rs.getString("content_m"));
 			}
 			return vo;
 		} catch (SQLException e) {
