@@ -4,8 +4,10 @@
 <head>
 	<title>회원가입</title>
 	<meta charset="utf-8">
-	<script src="../listPage/js/jquery-3.6.0.min.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
 	<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+	<!-- add styles -->
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
 	<style>
 		* {
 			box-sizing: border-box;
@@ -98,16 +100,16 @@
 </head>
 
 <body>
-	<nav style="color: red">
-		<h1>로고</h1>
-	</nav>
+	<div>
+		<a href="login.html"><img id="logo" src="images/logo.jpg"></a>
+	</div>
 	<div class="login-form">
 		<form id="frm" method="post" name="myForm" onsubmit="submitFrm(event)">
 			회원가입 <br>
 			<br> <input type="text" id="userNick" name="userNick" class="text-field" placeholder="이름"><br> <input
 				type="email" id="userId" name="userId" class="text-field" placeholder="이메일(example@gmail.com)"><br>
 			<input type="password" id="userPw" name="userPw" class="text-field" placeholder="비밀번호"><br> 
-			<input type="submit" value="계정 생성하기" class="submit-btn">
+			<input type="submit" value="계정 생성하기" class="submit-btn" onclick="location.href='listPage.html'">
 		</form>
 	</div>
 </body>

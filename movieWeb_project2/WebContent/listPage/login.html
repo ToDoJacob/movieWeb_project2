@@ -4,9 +4,12 @@
 <head>
 <title>로그인</title>
 <meta charset="utf-8">
-<script src="../jquery/jquery-3.6.0.min.js"></script>
+
+<script src="js/jquery-3.6.0.min.js"></script>
 <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"
 	rel="stylesheet">
+<!-- add styles -->
+<link href="css/main.css" rel="stylesheet" type="text/css" />
 
 <style>
 * {
@@ -67,6 +70,9 @@ body {
 
 
 <body>
+	<div>
+		<a href="login.html"><img id="logo" src="images/logo.jpg"></a>
+	</div>
 	<div class="login-form">
 		<form id="frm" method="post" onsubmit="login(event)">
 			로그인 <br> <br> <input type="text" id="userId" name="userId"
@@ -125,7 +131,7 @@ body {
 				console.log(result);
 				
 				if (result) {
-					window.location.href = 'index.html';
+					window.location.href = 'listPage.html';
 				} else {
 					window.alert('로그인 실패');
 				}
