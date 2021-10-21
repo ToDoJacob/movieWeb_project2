@@ -131,6 +131,8 @@ body {
 				console.log(result);
 				
 				if (result) {
+					//result.userId- 값을 가지고 와서 id에 저장해준다
+					sessionStorage.setItem("id", result.userId);
 					window.location.href = 'listPage.html';
 				} else {
 					window.alert('로그인 실패');
