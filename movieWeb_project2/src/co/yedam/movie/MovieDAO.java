@@ -49,7 +49,6 @@ public class MovieDAO extends DAO {
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, movieId);
-			System.out.println(movieId);
 
 			rs = psmt.executeQuery();
 
