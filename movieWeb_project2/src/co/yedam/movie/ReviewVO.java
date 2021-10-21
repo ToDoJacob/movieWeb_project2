@@ -3,8 +3,27 @@ package co.yedam.movie;
 public class ReviewVO {
 
 	private String postingId;
+	private String movieId;
+	private String userId;
 	private String coment;
 	private String grade;
+	
+	public String getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(String movieId) {
+		this.movieId = movieId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 
 	public String getPostingId() {
 		return postingId;
