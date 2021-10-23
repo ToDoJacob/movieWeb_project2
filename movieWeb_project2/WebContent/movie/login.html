@@ -99,7 +99,7 @@ body {
 		let email = $('#userId').val();
 		let userPw = $('#userPw').val();
 
-		if (!email) {
+		if (!email) { //email == null 
 			window.alert('아이디 입력하세요');
 			document.frm.email.focus();
 			e.preventDefault();
