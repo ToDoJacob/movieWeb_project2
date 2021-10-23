@@ -16,7 +16,9 @@ This stylesheet and the associated (x)html may be modified in any way to fit you
 
 /* general styles */
 .row {
-    margin-left: 10%;
+    /*margin-left: 10%;*/
+    text-align: center;
+    margin: 0 100px;
 }
 
 #logo {

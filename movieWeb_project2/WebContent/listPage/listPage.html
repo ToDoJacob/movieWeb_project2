@@ -33,17 +33,17 @@
 	<header>
 		<div class="container" id="main" role="main">
 			<div>
-				<a href="../movie/login.html"><img id="logo" src="images/logo.jpg"></a>
+				<a href="login.html"><img id="logo" src="images/logo.jpg"></a>
 			</div>
 			<ul class="menu">
-				<li><a href="#toListAllPage">Genre</a>
+				<li><a href="javascript:void(0);" onclick="listUpAll()">Genre</a>
 					<ul class="submenu">
 						<li><a href="javascript:void(0);" onclick="division('action')">Action</a></li>
 						<li><a href="javascript:void(0);" onclick="division('animation')">Animation</a></li>
 						<li><a href="javascript:void(0);" onclick="division('romance')">Romance</a></li>
 					</ul>
 				</li>
-				<li id="login"><a href="../movie/login.html">Log Out</a></li>
+				<li id="login"><a href="login.html">Log Out</a></li>
 			</ul>
 		</div>
 	</header>
@@ -87,15 +87,17 @@
 
 
 	<script>
+		console.log(sessionStorage.getItem("id"));
 		let movieAry = [];
 		console.log(movieAry);
+		
 		function makeMovieDiv(movie) {
 
 			let innerDiv = document.createElement('div');
 			innerDiv.setAttribute('id', movie.genre)
 
 			let aTag = document.createElement('a');
-			aTag.setAttribute('href', 'review.html?movieId=' + movie.movie_id);
+			aTag.setAttribute('href', 'movieDetail.jsp?movieId=' + movie.movie_id);
 
 			let img = document.createElement('img');
 			img.setAttribute('src', 'images/' + movie.genre + '/' + movie.poster);
@@ -105,7 +107,6 @@
 
 			return innerDiv;
 		}
-
 
 		function division(genre) {
 			let list = document.querySelector('section.portfolio>div>div');
@@ -118,6 +119,12 @@
 		}
 
 		//아작스 호출
+		window.onload = listUpAll(); 
+			
+		function listUpAll() {
+		movieAry = [];
+		let list = document.querySelector('section.portfolio>div>div');
+		$(list).empty();
 		let xhtp = new XMLHttpRequest();
 		xhtp.open('get', '../MovieServlet');
 		xhtp.send();
@@ -130,7 +137,10 @@
 			}
 			 
 		}
+		}
+		
 	</script>
+
 
 
 </body>

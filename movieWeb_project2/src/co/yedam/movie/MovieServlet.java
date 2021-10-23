@@ -31,6 +31,7 @@ public class MovieServlet extends HttpServlet {
 		
 		MovieDAO dao = new MovieDAO();
 		List<MovieVO> list = dao.getMovieList(); //list
+		System.out.println(list);
 		out.println(gson.toJson(list));
 		
 	}

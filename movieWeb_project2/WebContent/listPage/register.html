@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>회원가입</title>
+	<meta charset="utf-8">
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+	<!-- add styles -->
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: 'Noto Sans KR', sans-serif;
+		}
+
+		body {
+			margin: 0;
+			background-color: black;
+			background-image: url(../listPage/images/background_image2.jpg);
+			background-repeat: no-repeat;
+			min-height: 100%;
+			min-width: 1024px;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		    background-size: cover;
+		}
+
+		.login-form {
+			position: absolute;
+			padding: 20px;
+			width: 300px;
+			background-color: #EEEFF1;
+			border-radius: 5px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		.text-field {
+			border: none;
+			border-radius: 5px;
+			width: 260px;
+			margin-bottom: 10px;
+			padding: 10px;
+			font-size: 14px;
+		}
+
+		.submit-btn {
+			color: white;
+			width: 260px;
+			border: none;
+			border-radius: 5px;
+			background-color: rgb(248, 31, 31);
+			font-size: 14px;
+			margin-bottom: 30px;
+			padding: 10px;
+		}
+
+		.links {
+			text-decoration: None;
+			text-align: center;
+		}
+
+		.links a {
+			text-decoration: none;
+			color: #9B9B9B;
+			font-size: 12px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div>
+		<a href="login.html"><img id="logo" src="images/logo.jpg"></a>
+	</div>
+	<div class="login-form">
+		<form id="frm" method="post" name="myForm" onsubmit="submitFrm(event)">
+			회원가입 <br>
+			<br> <input type="text" id="userNick" name="userNick" class="text-field" placeholder="이름"><br> <input
+				type="email" id="userId" name="userId" class="text-field" placeholder="이메일(example@gmail.com)"><br>
+			<input type="password" id="userPw" name="userPw" class="text-field" placeholder="비밀번호"><br> 
+			<input type="submit" value="계정 생성하기" class="submit-btn">
+		</form>
+	</div>
+</body>
+
+
+<script>
+	function submitFrm(e) {
+		e.preventDefault();
+		let userNick = $('#userNick').val();
+		let email = $('#userId').val();
+		let userPw = $('#userPw').val();
+
+		//ajax 호출...DB 연결 후
+		$.ajax({
+			url: '../UserServlet',
+			type: 'post',
+			data: {
+				userNick: userNick,
+				userId: email,
+				userPw: userPw
+			},
+			dataType: 'text',
+			success: function (result) {
+				//화면에 결과반영
+				console.log(result);
+				window.alert('환영합니다');
+				window.location.href = 'login.html';
+
+			},
+			error: function (reject) {
+				window.alert('중복 아이디입니다');
+				console.log(reject);
+
+			}
+
+		});
+
+	}
+</script>
+
+</html>
